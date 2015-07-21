@@ -15,6 +15,7 @@ describe('decorators', () => {
      () => { expectTranslate('@A function f() {}').to.equal(' @ A f ( ) { }'); });
   it('translates on properties',
      () => { expectTranslate('class X { @A p; }').to.equal(' class X { @ A var p ; }'); });
+  it('translates on top-levels', () => { expectTranslate('@A var p;').to.equal(' @ A var p ;'); });
   it('translates on parameters',
      () => { expectTranslate('function f (@A p) {}').to.equal(' f ( @ A p ) { }'); });
   it('special cases @CONST', () => {

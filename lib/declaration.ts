@@ -12,6 +12,7 @@ class DeclarationTranspiler extends base.TranspilerBase {
       case ts.SyntaxKind.VariableDeclarationList:
         // Note: VariableDeclarationList can only occur as part of a for loop.
         var varDeclList = <ts.VariableDeclarationList>node;
+        this.visitDecorators(varDeclList.parent.decorators);
         this.visitList(varDeclList.declarations);
         break;
       case ts.SyntaxKind.VariableDeclaration:
